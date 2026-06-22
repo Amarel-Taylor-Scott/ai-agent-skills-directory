@@ -1,0 +1,16 @@
+name: Add / update an entry
+description: Suggest a new skill system/protocol/marketplace or a correction
+labels: ["entry"]
+body:
+  - type: input
+    id: name
+    attributes: { label: Name }
+    validations: { required: true }
+  - type: input
+    id: url
+    attributes: { label: Canonical homepage / spec URL }
+    validations: { required: true }
+  - type: textarea
+    id: details
+    attributes: { label: Org, category, open source?, license, what it does }
+    validations: { required: true }
