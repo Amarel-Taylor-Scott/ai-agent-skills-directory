@@ -31,3 +31,8 @@ skill-dir = "main:main"
 
 [tool.setuptools]
 py-modules = ["__version__", "data", "report", "main"]
+packages = ["agent_skills_directory_resources"]
+package-dir = {agent_skills_directory_resources = "resources"}
+
+[tool.setuptools.package-data]
+agent_skills_directory_resources = ["design-motion.csv"]

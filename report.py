@@ -71,6 +71,15 @@ def generate() -> str:
     out.append(f"- **{total}** entries across **{len(categories)}** categories")
     out.append(f"- 🟢 **{oss}** open · 🔒 **{total - oss}** proprietary\n")
 
+    out.append("## Design and motion resources\n")
+    out.append("The [design and motion guide](resources/design-motion.md) introduces the individual skills and tools. "
+               "Browse their upstream links, licenses and tags in the [companion CSV](resources/design-motion.csv) "
+               "or search it with `skill-dir resources`.\n")
+    out.append("```bash")
+    out.append("skill-dir resources animation --kind skill")
+    out.append("skill-dir resources --kind tool --format json")
+    out.append("```\n")
+
     out.append("## Directory\n")
     for cat in sorted(by_cat, key=lambda c: c.label):
         tools = sorted(by_cat[cat], key=lambda t: t.name.lower())
