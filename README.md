@@ -24,6 +24,15 @@ skill-dir generate              # regenerate this README
 - **13** entries across **3** categories
 - 🟢 **5** open · 🔒 **8** proprietary
 
+## Design and motion resources
+
+The [design and motion guide](resources/design-motion.md) introduces the individual skills and tools. Browse their upstream links, licenses and tags in the [companion CSV](resources/design-motion.csv) or search it with `skill-dir resources`.
+
+```bash
+skill-dir resources animation --kind skill
+skill-dir resources --kind tool --format json
+```
+
 ## Directory
 
 ### Platform Skill Systems (8)
