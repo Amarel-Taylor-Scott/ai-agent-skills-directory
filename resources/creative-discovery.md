@@ -1,6 +1,6 @@
 # Where to discover creative tools
 
-These 15 sources cover different parts of the search. Start with Codrops for browser motion demos, STASH for production credits, Blender Extensions for installable tools, or the Coding Train showcase for editable sketches. The [source index](creative-discovery.csv) includes a real example for every source. Links and feed formats were checked on November 21, 2026.
+These sources cover different parts of the search. Start with Codrops for browser motion demos, STASH for production credits, Blender Extensions for installable tools, or the Coding Train showcase for editable sketches. The [source index](creative-discovery.csv) includes a real example for every source. Links and feed formats were checked on November 21, 2026.
 
 ## Feeds and machine-readable catalogs
 
@@ -18,6 +18,7 @@ These 15 sources cover different parts of the search. Start with Codrops for bro
 
 | Source | What to look for | Follow a lead |
 | --- | --- | --- |
+| [AMIA Open Workflows](https://github.com/amiaopensource/open-workflows) | Audiovisual archive workflows and video quality-control tools | [QCTools](https://github.com/bavc/qctools) |
 | [Awesome Creative Coding](https://github.com/terkelg/awesome-creative-coding) | Generative-art libraries and visual programming frameworks | [Example](https://github.com/mattdesl/canvas-sketch) |
 | [Awesome Motion Skills](https://github.com/iart-ai/awesome-motion-skills) | Agent workflows for animation, explainers and kinetic typography | [Example](https://github.com/iart-ai/motion-design-skills) |
 | [p5.js Libraries](https://p5js.org/libraries/directory/) | p5.js capture, export and shader libraries | [Example](https://github.com/tapioca24/p5.capture) |
