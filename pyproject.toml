@@ -35,4 +35,4 @@ packages = ["agent_skills_directory_resources"]
 package-dir = {agent_skills_directory_resources = "resources"}
 
 [tool.setuptools.package-data]
-agent_skills_directory_resources = ["design-motion.csv"]
+agent_skills_directory_resources = ["design-motion.csv", "creative-discovery.csv"]
