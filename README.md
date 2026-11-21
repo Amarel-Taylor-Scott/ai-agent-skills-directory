@@ -33,6 +33,8 @@ skill-dir resources animation --kind skill
 skill-dir resources --kind tool --format json
 ```
 
+The [creative discovery guide](resources/creative-discovery.md) covers places to find more projects. Browse the [source catalog](resources/creative-discovery.csv) or run `skill-dir sources` to list them all. Use `skill-dir sources --has-feed --format json` for sources with a feed URL.
+
 ## Directory
 
 ### Platform Skill Systems (8)

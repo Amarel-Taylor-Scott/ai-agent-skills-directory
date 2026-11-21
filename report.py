@@ -80,6 +80,10 @@ def generate() -> str:
     out.append("skill-dir resources --kind tool --format json")
     out.append("```\n")
 
+    out.append("The [creative discovery guide](resources/creative-discovery.md) covers places to find more projects. "
+               "Browse the [source catalog](resources/creative-discovery.csv) or run `skill-dir sources` to list them all. "
+               "Use `skill-dir sources --has-feed --format json` for sources with a feed URL.\n")
+
     out.append("## Directory\n")
     for cat in sorted(by_cat, key=lambda c: c.label):
         tools = sorted(by_cat[cat], key=lambda t: t.name.lower())

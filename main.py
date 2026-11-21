@@ -19,9 +19,12 @@ from data import TOOLS, Category, Tool
 
 
 if Path(__file__).with_name("pyproject.toml").is_file():
-    RESOURCE_CATALOG = Path(__file__).parent / "resources" / "design-motion.csv"
+    RESOURCE_DIR = Path(__file__).parent / "resources"
 else:
-    RESOURCE_CATALOG = files("agent_skills_directory_resources").joinpath("design-motion.csv")
+    RESOURCE_DIR = files("agent_skills_directory_resources")
+
+RESOURCE_CATALOG = RESOURCE_DIR.joinpath("design-motion.csv")
+SOURCE_CATALOG = RESOURCE_DIR.joinpath("creative-discovery.csv")
 
 
 def _matches(t: Tool, query: str) -> bool:
@@ -130,6 +133,30 @@ def cmd_resources(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_sources(args: argparse.Namespace) -> int:
+    """Search creative project and skill discovery sources."""
+    terms = " ".join(args.words).casefold().split()
+    with SOURCE_CATALOG.open(encoding="utf-8", newline="") as catalog:
+        rows = []
+        for row in csv.DictReader(catalog):
+            if args.has_feed and not row["feed_url"].strip():
+                continue
+            searchable = " ".join(row[key] for key in ("id", "name", "type", "focus", "notes")).casefold()
+            if all(term in searchable for term in terms):
+                rows.append(row)
+    rows.sort(key=lambda row: (row["name"].casefold(), row["id"]))
+    if args.format == "json":
+        print(json.dumps(rows, indent=2, ensure_ascii=False))
+    else:
+        for row in rows:
+            print(f"{row['name']} [{row['type']}]  {row['focus']}")
+            print(f"  {row['browse_url']}")
+            if row["feed_url"]:
+                print(f"  Feed: {row['feed_url']}")
+        print(f"{len(rows)} source(s).")
+    return 0
+
+
 def cmd_generate(_: argparse.Namespace) -> int:
     from report import generate
     readme = Path(__file__).parent / "README.md"
@@ -170,6 +197,12 @@ def build_parser() -> argparse.ArgumentParser:
     pr.add_argument("--kind", choices=["skill", "tool"], help="Filter by resource type")
     pr.add_argument("--format", choices=["text", "json"], default="text")
     pr.set_defaults(func=cmd_resources)
+
+    sources = sub.add_parser("sources", help="Find sources for discovering creative projects and skills")
+    sources.add_argument("words", nargs="*", help="Match every word against source IDs, names, types, focus and notes")
+    sources.add_argument("--has-feed", action="store_true", help="Only list sources with a feed URL")
+    sources.add_argument("--format", choices=["text", "json"], default="text")
+    sources.set_defaults(func=cmd_sources)
 
     sub.add_parser("generate", help="Regenerate README.md").set_defaults(func=cmd_generate)
     sub.add_parser("version", help="Print version").set_defaults(func=cmd_version)
