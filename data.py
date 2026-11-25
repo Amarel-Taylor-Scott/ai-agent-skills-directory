@@ -50,12 +50,28 @@ class Tool:
 # ---------------------------------------------------------------------------
 TOOLS: list[Tool] = [
     # --- Skill & tool protocols ---
+    Tool("Agent Skills specification", "Agent Skills", Category.skill_protocol,
+         "https://agentskills.io/specification", True, "CC-BY-4.0 (spec), Apache-2.0 (code)",
+         note="Defines how to package reusable instructions, scripts, and references around a SKILL.md file.",
+         tags=("skills", "specification", "portable", "skill.md")),
+    Tool("Agent2Agent (A2A)", "A2A Project", Category.skill_protocol,
+         "https://a2a-protocol.org/latest/specification/", True, "Apache-2.0",
+         note="Agents publish skills in an Agent Card so other agents can discover them and delegate tasks.",
+         tags=("agent-card", "discovery", "delegation", "protocol")),
     Tool("Model Context Protocol (MCP)", "Anthropic (open standard)", Category.skill_protocol,
          "https://modelcontextprotocol.io", True, "MIT",
          note="Open standard for connecting agents to tools, data sources, and skills.",
          tags=("protocol", "open", "popular")),
 
     # --- Platform skill systems ---
+    Tool("Gemini CLI extensions", "Google", Category.platform_skills,
+         "https://geminicli.com/docs/extensions/", True, "Apache-2.0",
+         note="Packages skills, commands, and MCP servers as shareable extensions for Gemini CLI.",
+         tags=("gemini-cli", "extensions", "skills")),
+    Tool("OpenCode skills", "Anomaly", Category.platform_skills,
+         "https://opencode.ai/docs/skills/", True, "MIT",
+         note="Discovers SKILL.md instructions in project and user directories and loads them on demand.",
+         tags=("opencode", "skills", "skill.md")),
     Tool("Anthropic Agent Skills", "Anthropic", Category.platform_skills,
          "https://www.anthropic.com", False, "Proprietary",
          note="Composable Skills (instructions + optional scripts) that extend Claude for tasks.",
