@@ -96,6 +96,11 @@ TOOLS: list[Tool] = [
          "https://www.salesforce.com/agentforce/", False, "Proprietary",
          note="Platform for building agents with reusable actions/skills.",
          tags=("enterprise", "actions")),
+    Tool("BulkPublish Social Media Content Skills", "BulkPublish", Category.platform_skills,
+         "https://github.com/azeemkafridi/bulkpublish-api/tree/main/skills/social-media-content-skills",
+         True, "MIT",
+         note="Open social-media skill system for approval-first content adaptation, scheduling, and publishing via BulkPublish API and MCP.",
+         tags=("social-media", "marketing", "mcp", "api")),
 
     # --- Skill / agent marketplaces ---
     Tool("Poe", "Quora", Category.marketplace,
